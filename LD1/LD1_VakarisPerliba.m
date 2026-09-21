@@ -3,7 +3,6 @@
 % Grupe: EDIF-25/2
 % Data: 2026-09-15
 
-
 x = 1:32
 y = x.^2;
 
@@ -27,9 +26,7 @@ pic_b = A(2:3, 1:2)
 pic_c = A([1,end], [1,end])
 
 
-
-
-modified_vect = [A_vect, 67, 67];
+modified_vect = [A_vect, 6, 7];
 
 to_matric_vect = reshape(modified_vect, 3, 3)
 
