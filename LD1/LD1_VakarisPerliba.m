@@ -20,7 +20,6 @@ A_vect = N + 1 : 0.5 : N + 4
 
 A = reshape(N:N+8, 3, 3);
 
-
 pic_a = A(3, 2)
 pic_b = A(2:3, 1:2)
 pic_c = A([1,end], [1,end])
