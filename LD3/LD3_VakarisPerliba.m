@@ -52,5 +52,29 @@ grid on;
 
 % a)
 
-A = 
+A = [10 8 2 1; 10 5 10 3; 10 2 10 1; 10 7 6 3; nan nan nan nan; nan nan nan nan]
+
+figure
+bar(A);
+legend('pirmas', 'antras', 'trecias', 'ketvirtas');
+
+% b)
+
+
+
+
+%% Papildoma
+
+% P1. Masyvo elementų indeksavimas
+
+A = [0 1 0 2 3 0 4;
+     0 0 0 0 0 0 0;
+     0 5 0 6 7 0 8;
+     0 9 0 1 2 0 3;
+     0 0 0 0 0 0 0;
+     0 4 0 5 6 0 7]
+
+% B be eilučių ir stulpelių, sudarytų iš nulių
+B = A(any(A ~= 0, 2), any(A ~= 0, 1))
+
 
