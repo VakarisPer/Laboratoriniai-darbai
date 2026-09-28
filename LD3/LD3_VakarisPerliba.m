@@ -54,13 +54,30 @@ grid on;
 
 A = [10 8 2 1; 10 5 10 3; 10 2 10 1; 10 7 6 3; nan nan nan nan; nan nan nan nan]
 
-figure
+figure(1)
 bar(A);
 legend('pirmas', 'antras', 'trecias', 'ketvirtas');
 
 % b)
 
+figure(2)
+stem(A);
 
+% c)
+
+figure(1)
+xlabel('X ašis');
+ylabel('Pažymys');
+title('Studentų pažymiai');
+ylim([0 10]);
+grid on;
+
+figure(2)
+xlabel('X ašis');
+ylabel('Pažymys');
+title('Studentų pažymiai (diskreti)');
+ylim([0 10]);
+grid on;
 
 
 %% Papildoma
