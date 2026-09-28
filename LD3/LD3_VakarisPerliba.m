@@ -42,7 +42,7 @@ ylabel('Y ašis');
 title(' y1 = e^x    y2 = e^{3x}  y3 = e^{5x} ');
 legend('y1 = e^x', 'y2 = e^{3x}', 'y3 = e^{5x}');
 
-axis([min(x) max(x) min(y) max(y)]);
+axis([min(x) max(x) min([y1 y2 y3]) max([y1 y2 y3])]);
 grid on;
 
 
