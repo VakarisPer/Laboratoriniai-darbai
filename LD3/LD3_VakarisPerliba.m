@@ -3,7 +3,7 @@
 % Grupe: EDIF-25/2
 % Data: 2026-09-28
 
-%% 1. Dvimatis grafikų vaizdavimas
+%% 1
 
 % a)
 
@@ -47,7 +47,7 @@ grid on;
 
 
 
-%% 2. Specializuotų grafikų kūrimas
+%% 2
 
 
 % a)
@@ -83,7 +83,7 @@ grid on;
 
 %% Papildoma
 
-% P1. Masyvo elementų indeksavimas
+% P1)
 
 A = [0 1 0 2 3 0 4;
      0 0 0 0 0 0 0;
@@ -92,7 +92,6 @@ A = [0 1 0 2 3 0 4;
      0 0 0 0 0 0 0;
      0 4 0 5 6 0 7]
 
-% B be eilučių ir stulpelių, sudarytų iš nulių
 B = A(any(A ~= 0, 2), any(A ~= 0, 1))
 
 
