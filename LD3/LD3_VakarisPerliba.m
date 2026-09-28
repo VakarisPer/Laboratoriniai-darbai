@@ -56,6 +56,9 @@ A = [10 8 2 1; 10 5 10 3; 10 2 10 1; 10 7 6 3; nan nan nan nan; nan nan nan nan]
 
 figure(1)
 bar(A);
+
+xlabel('studentai');
+ylabel('atsiskaitymai');
 legend('pirmas', 'antras', 'trecias', 'ketvirtas');
 
 % b)
@@ -66,15 +69,13 @@ stem(A);
 % c)
 
 figure(1)
-xlabel('X ašis');
-ylabel('Pažymys');
 title('Studentų pažymiai');
 ylim([0 10]);
 grid on;
 
 figure(2)
-xlabel('X ašis');
-ylabel('Pažymys');
+xlabel('studentai');
+ylabel('atsiskaitymai');
 title('Studentų pažymiai (diskreti)');
 ylim([0 10]);
 grid on;
