@@ -1,0 +1,1016 @@
+/*==============================================================
+  custom.css – nuosavi CV svetainės stiliai (LD9)
+  Autorius: Vakaris Perliba
+  Šis failas įkeliamas PO main.css, todėl jo taisyklės
+  perrašo šablono stilius.
+==============================================================*/
+
+/*--------------------------------------------------------------
+# 0. Spalvos ir šriftų kintamieji
+--------------------------------------------------------------*/
+:root {
+  /* Šriftų šeimos */
+  --default-font: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --heading-font: "Space Grotesk", "Inter", sans-serif;
+  --mono-font: "JetBrains Mono", Consolas, "Courier New", monospace;
+
+  /* Akcento spalva: turkio (vietoj šablono baltos) */
+  --accent-color: #2dd4bf;
+  --accent-light: #5eead4;
+  --accent-dark: #0f766e;
+  --contrast-color: #042f2a;   /* tekstas ant turkio fono */
+  --surface-color: #141818;
+  --border-soft: rgba(45, 212, 191, 0.18);
+  --text-muted: #a3b3b1;
+}
+
+/*--------------------------------------------------------------
+# 1. Šriftai (Typography)
+--------------------------------------------------------------*/
+body {
+  font-family: var(--default-font);
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.005em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: #f2fbfa;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--accent-light);
+}
+
+h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-family: var(--mono-font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+h6 {
+  font-family: var(--mono-font);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+p {
+  color: #cdd6d5;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+}
+
+/* Skilčių antraštės */
+.section-title h2 {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.section-title h2::after {
+  width: 80px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+}
+
+.section-title p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* Pradinio ekrano vardas ir šūkis */
+.hero h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  font-family: var(--mono-font);
+  color: #e6f4f2;
+}
+
+.hero p span {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* Apie skilties citata ir resume pavadinimai */
+.about .content h2 {
+  font-size: 1.7rem;
+  color: #f2fbfa;
+}
+
+.about .content .fst-italic {
+  font-style: normal !important;
+  font-size: 1.1rem;
+  color: #e6f4f2;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 18px !important;
+}
+
+.resume .resume-title {
+  font-size: 1.6rem;
+  color: var(--accent-light);
+}
+
+.resume .resume-item h4 {
+  text-transform: none;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: #f2fbfa;
+}
+
+/*--------------------------------------------------------------
+# 2. Mygtukai ir jų pseudo-klasės
+--------------------------------------------------------------*/
+.btn-cv,
+.contact .php-email-form button[type=submit] {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border-radius: 10px;
+  border: 2px solid var(--accent-color);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Pagrindinis (užpildytas) mygtukas */
+.btn-cv-primary,
+.contact .php-email-form button[type=submit] {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.btn-cv-primary:hover,
+.contact .php-email-form button[type=submit]:hover {
+  background: var(--accent-light);
+  border-color: var(--accent-light);
+  color: var(--contrast-color);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(45, 212, 191, 0.35);
+}
+
+/* Kontūrinis mygtukas */
+.btn-cv-outline {
+  background: transparent;
+  color: var(--accent-light);
+}
+
+.btn-cv-outline:hover {
+  background: rgba(45, 212, 191, 0.12);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(45, 212, 191, 0.2);
+}
+
+/* Paspaudimo būsena (:active) – mygtukas „įspaudžiamas“ */
+.btn-cv:active,
+.contact .php-email-form button[type=submit]:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.35);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #ffffff;
+}
+
+.btn-cv:focus-visible,
+.contact .php-email-form button[type=submit]:focus-visible {
+  outline: 3px solid var(--accent-light);
+  outline-offset: 3px;
+}
+
+.hero .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 26px 0 10px;
+}
+
+/* Darbų filtrai kaip mygtukai */
+.portfolio .portfolio-filters li {
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  margin: 0 4px 8px;
+  color: #dbe7e5;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.portfolio .portfolio-filters li:hover {
+  background: rgba(45, 212, 191, 0.12);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.portfolio .portfolio-filters li.filter-active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.portfolio .portfolio-filters li:active {
+  transform: scale(0.95);
+}
+
+/*--------------------------------------------------------------
+# 3. Nuorodos
+--------------------------------------------------------------*/
+a {
+  color: var(--accent-color);
+}
+
+a:hover {
+  color: var(--accent-light);
+}
+
+/* Tekstinės nuorodos su animuotu pabraukimu */
+.about .content a,
+.contact .info-item a,
+.footer a {
+  color: var(--accent-light);
+  font-weight: 500;
+  background-image: linear-gradient(var(--accent-color), var(--accent-color));
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition: background-size 0.3s ease, color 0.3s ease;
+}
+
+.about .content a:hover,
+.contact .info-item a:hover,
+.footer a:hover {
+  color: #ffffff;
+  background-size: 100% 2px;
+}
+
+.about .content a:active,
+.contact .info-item a:active {
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# 4. Tarpai (margin / padding) ir turinio blokai
+--------------------------------------------------------------*/
+
+/* Bendri skilčių tarpai */
+.about.section,
+.resume.section,
+.portfolio.section {
+  padding: 100px 0 90px;
+}
+
+.section-title {
+  padding-bottom: 48px;
+}
+
+/* --- Apie --- */
+.about .row.gy-4 {
+  --bs-gutter-x: 3rem;
+}
+
+.about .about-photo img {
+  border-radius: 20px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 6px rgba(45, 212, 191, 0.06);
+}
+
+.about .content {
+  background: var(--surface-color);
+  border: 1px solid var(--border-soft);
+  border-radius: 20px;
+  padding: 36px 40px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+}
+
+.about .content ul li {
+  margin-bottom: 14px;
+}
+
+/* --- Patirtis --- */
+.resume .row {
+  --bs-gutter-x: 3rem;
+}
+
+.resume .resume-title {
+  margin-top: 36px;
+  margin-bottom: 22px;
+}
+
+.resume .resume-item {
+  background: var(--surface-color);
+  border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 0 14px 14px 0;
+  padding: 22px 26px;
+  margin: 0 0 22px 10px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.resume .resume-item:last-child {
+  padding-bottom: 22px;
+}
+
+.resume .resume-item > :last-child,
+.resume .resume-item ul li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resume .resume-item::before {
+  left: -11px;
+  top: 24px;
+  background: var(--accent-color);
+  border-color: var(--background-color);
+  box-shadow: 0 0 0 3px var(--accent-color);
+}
+
+.resume .resume-item h5 {
+  background: rgba(45, 212, 191, 0.1);
+  border-radius: 6px;
+  padding: 3px 12px;
+}
+
+/* --- Atlikti darbai --- */
+.portfolio .isotope-container {
+  --bs-gutter-x: 2rem;
+  --bs-gutter-y: 2rem;
+}
+
+.portfolio .portfolio-item {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  padding: 0;
+}
+
+.portfolio .portfolio-item img {
+  border-radius: 0;
+}
+
+.portfolio .portfolio-item .portfolio-info {
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+/* --- Paslaugos --- */
+.services .service-item {
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.services .services-media {
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.services .ratio {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* --- Kontaktai --- */
+.contact .php-email-form {
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.contact .php-email-form {
+  background: var(--surface-color);
+  padding: 32px;
+}
+
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  border-radius: 10px;
+}
+
+.contact .info-item i {
+  border-radius: 12px;
+  background: rgba(45, 212, 191, 0.12);
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# 5. Pasirinkti komponentai
+--------------------------------------------------------------*/
+
+/* 5.1 Navigacijos meniu */
+.navmenu a,
+.navmenu a:focus {
+  font-family: var(--heading-font);
+  font-weight: 500;
+  background: #121616;
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  margin-bottom: 10px;
+}
+
+.navmenu a i,
+.navmenu a:focus i {
+  color: var(--accent-color);
+}
+
+.navmenu a:hover,
+.navmenu .active,
+.navmenu .active:focus,
+.navmenu li:hover > a {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+  border-color: transparent;
+  color: var(--contrast-color);
+  box-shadow: 0 8px 22px rgba(45, 212, 191, 0.35);
+}
+
+.navmenu a:hover i,
+.navmenu .active i,
+.navmenu li:hover > a i {
+  color: var(--contrast-color);
+}
+
+/* 5.2 Įgūdžių progreso juostos */
+.skills .progress .skill {
+  font-family: var(--mono-font);
+  text-transform: none;
+  font-size: 0.95rem;
+}
+
+.skills .progress .skill .val {
+  color: var(--accent-light);
+}
+
+.skills .progress-bar-wrap {
+  height: 12px;
+  border-radius: 999px;
+  background: #1b2423;
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+
+.skills .progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent-color) 60%, var(--accent-light));
+  box-shadow: 0 0 12px rgba(45, 212, 191, 0.55);
+}
+
+/* 5.3 Mygtukas „į viršų“ */
+.scroll-top {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 24px rgba(45, 212, 191, 0.35);
+}
+
+.scroll-top:hover {
+  background: var(--accent-light);
+  transform: translateY(-3px);
+}
+
+/*--------------------------------------------------------------
+# 6. Papildoma užduotis: sąrašai (LD8 elementai)
+--------------------------------------------------------------*/
+
+/* Nenumeruotas sąrašas: nuosavas žymeklis per ::before */
+.services ul.services-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.services ul.services-list > li {
+  position: relative;
+  padding: 6px 0 6px 30px;
+}
+
+.services ul.services-list > li::before {
+  content: "▹";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  color: var(--accent-color);
+  font-size: 1.15rem;
+}
+
+/* Įdėtinis nenumeruotas sąrašas – kitokia išvaizda */
+.services ul.services-list ul {
+  list-style: none;
+  margin: 8px 0 2px;
+  padding: 4px 0 4px 16px;
+  border-left: 2px dashed var(--border-soft);
+}
+
+.services ul.services-list ul li {
+  position: relative;
+  padding: 3px 0 3px 18px;
+  font-family: var(--mono-font);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.services ul.services-list ul li::before {
+  content: "–";
+  position: absolute;
+  left: 2px;
+  color: var(--accent-light);
+}
+
+/* Numeruotas sąrašas: CSS skaitikliai (counters) */
+.services ol.services-list {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: etapas;
+}
+
+.services ol.services-list > li {
+  position: relative;
+  counter-increment: etapas;
+  padding: 8px 0 8px 48px;
+  min-height: 44px;
+}
+
+.services ol.services-list > li::before {
+  content: counter(etapas);
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
+}
+
+/* Įdėtinis numeruotas sąrašas – raidiniai skaitikliai */
+.services ol.services-list ol {
+  list-style: none;
+  counter-reset: poetapis;
+  margin: 8px 0 0;
+  padding: 10px 14px;
+  background: rgba(45, 212, 191, 0.06);
+  border-radius: 10px;
+}
+
+.services ol.services-list ol li {
+  counter-increment: poetapis;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  padding: 3px 0;
+}
+
+.services ol.services-list ol li::before {
+  content: counter(etapas) "." counter(poetapis, lower-alpha) " ";
+  font-family: var(--mono-font);
+  color: var(--accent-light);
+  margin-right: 6px;
+}
+
+/*--------------------------------------------------------------
+# 7. Papildoma užduotis: lentelė
+--------------------------------------------------------------*/
+.services .services-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Vienodi langelių tarpai ir lygiavimas centre */
+.services .services-table th,
+.services .services-table td {
+  padding: 14px 18px;
+  text-align: center;
+  vertical-align: middle;
+  box-shadow: none;
+}
+
+/* Antraštinė eilutė */
+.services .services-table thead th {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  font-family: var(--heading-font);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 0;
+}
+
+/* Zebra eilutės */
+.services .services-table tbody tr:nth-child(odd) > td {
+  background-color: #161c1c;
+}
+
+.services .services-table tbody tr:nth-child(even) > td {
+  background-color: #0f1313;
+}
+
+/* Eilutės :hover efektas */
+.services .services-table tbody tr:hover > td {
+  background-color: rgba(45, 212, 191, 0.14);
+  color: #ffffff;
+}
+
+.services .services-table tbody td:last-child {
+  font-family: var(--mono-font);
+  color: var(--accent-light);
+  font-weight: 500;
+}
+
+/*==============================================================
+  LD10 – CSS animacijos
+==============================================================*/
+
+/*--------------------------------------------------------------
+# 8. Naujos animacijos (@keyframes)
+--------------------------------------------------------------*/
+
+/* 8.1 Socialinių tinklų ikonėlių „linguojantis šuolis“
+   4 būsenos (0%, 30%, 60%, 100%), keičiamos 3 savybės:
+   transform, color ir text-shadow */
+@keyframes socialBounce {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    color: #cdd6d5;
+    text-shadow: none;
+  }
+  30% {
+    transform: translateY(-8px) rotate(-10deg);
+    color: var(--accent-color);
+    text-shadow: 0 0 12px rgba(45, 212, 191, 0.7);
+  }
+  60% {
+    transform: translateY(2px) rotate(8deg);
+    color: var(--accent-light);
+    text-shadow: 0 0 6px rgba(45, 212, 191, 0.4);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    color: #cdd6d5;
+    text-shadow: none;
+  }
+}
+
+.hero .social-links a {
+  display: inline-block;
+  animation: socialBounce 2.8s ease-in-out infinite;
+}
+
+.hero .social-links a:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.hero .social-links a:hover {
+  animation-play-state: paused;
+}
+
+/* 8.2 Pagrindinio mygtuko pulsuojantis švytėjimas */
+@keyframes btnPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(45, 212, 191, 0);
+  }
+}
+
+.hero .btn-cv-primary {
+  animation: btnPulse 2.2s ease-out infinite;
+}
+
+.hero .btn-cv-primary:hover,
+.hero .btn-cv-primary:active {
+  animation: none;
+}
+
+/* 8.3 Nuotraukos rėmelio „kvėpavimas“ skiltyje Apie */
+@keyframes photoGlow {
+  0%, 100% {
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 6px rgba(45, 212, 191, 0.06);
+  }
+  50% {
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 10px rgba(45, 212, 191, 0.18);
+  }
+}
+
+.about .about-photo img {
+  animation: photoGlow 4s ease-in-out infinite;
+}
+
+/*--------------------------------------------------------------
+# 9. Krovimo indikatorius (Loading Indicator) – tik CSS
+--------------------------------------------------------------*/
+.cv-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 26px;
+}
+
+/* Besisukantis apskritimas (spinner) */
+.cv-loader-ring {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid rgba(45, 212, 191, 0.15);
+  border-top-color: var(--accent-color);
+  border-right-color: var(--accent-light);
+  animation: loaderSpin 1s linear infinite;
+}
+
+@keyframes loaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulsuojantys taškai (pulsing dots) */
+.cv-loader-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.cv-loader-dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  animation: loaderDot 1.2s ease-in-out infinite;
+}
+
+.cv-loader-dots i:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.cv-loader-dots i:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loaderDot {
+  0%, 80%, 100% {
+    transform: scale(0.5);
+    opacity: 0.35;
+  }
+  40% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/*--------------------------------------------------------------
+# 10. Animuoti dekoratyviniai skilčių antraščių pseudo-elementai
+--------------------------------------------------------------*/
+
+/* ::before – kodo žymė „</>“ virš antraštės, plūduriuoja ir mirksi */
+.section-title h2::before {
+  content: "</>";
+  position: absolute;
+  left: 50%;
+  top: -34px;
+  bottom: auto;
+  right: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+  background: none;
+  font-family: var(--mono-font);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--accent-color);
+  transform: translateX(-50%);
+  animation: titleTagFloat 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes titleTagFloat {
+  0%, 100% {
+    transform: translate(-50%, 0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate(-50%, -6px);
+    opacity: 1;
+  }
+}
+
+/* ::after – apatinė juosta su bėgančiu gradientu ir kintančiu pločiu */
+.section-title h2::after {
+  width: 80px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent-light), var(--accent-color), var(--accent-dark));
+  background-size: 300% 100%;
+  animation: titleBar 3.5s ease-in-out infinite;
+}
+
+@keyframes titleBar {
+  0% {
+    width: 60px;
+    background-position: 0% 50%;
+  }
+  50% {
+    width: 140px;
+    background-position: 100% 50%;
+  }
+  100% {
+    width: 60px;
+    background-position: 0% 50%;
+  }
+}
+
+/*--------------------------------------------------------------
+# 11. Papildoma: animuotas gradientinis Paslaugų fonas
+--------------------------------------------------------------*/
+.services.section {
+  background: linear-gradient(125deg, #0a0a0a 0%, #052622 30%, #0a0a0a 55%, #071a26 80%, #0a0a0a 100%);
+  background-size: 300% 300%;
+  animation: servicesGradient 16s ease-in-out infinite;
+}
+
+@keyframes servicesGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*--------------------------------------------------------------
+# 12. Papildoma: animuotos CSS figūros skiltyje Apie
+--------------------------------------------------------------*/
+.about.section {
+  position: relative;
+}
+
+.about > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.about-shapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-shapes .shape {
+  position: absolute;
+  display: block;
+}
+
+/* Apskritimas – plūduriuoja (floating) */
+.about-shapes .shape-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--accent-light), var(--accent-dark));
+  opacity: 0.35;
+  top: 70px;
+  left: 3%;
+  animation: shapeFloat 7s ease-in-out infinite;
+}
+
+@keyframes shapeFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(18px, -22px);
+  }
+  50% {
+    transform: translate(-10px, -38px);
+  }
+  75% {
+    transform: translate(-20px, -12px);
+  }
+}
+
+/* Trikampis (iš kraštinių) – sukasi (rotating) */
+.about-shapes .shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 34px solid transparent;
+  border-right: 34px solid transparent;
+  border-bottom: 58px solid rgba(45, 212, 191, 0.4);
+  top: 120px;
+  right: 4%;
+  animation: shapeRotate 12s linear infinite;
+}
+
+@keyframes shapeRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Kvadratas – didėja ir sukasi (scaling) */
+.about-shapes .shape-square {
+  width: 46px;
+  height: 46px;
+  border: 3px solid var(--accent-color);
+  border-radius: 8px;
+  opacity: 0.45;
+  bottom: 80px;
+  left: 6%;
+  animation: shapeScale 5s ease-in-out infinite;
+}
+
+@keyframes shapeScale {
+  0%, 100% {
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.35) rotate(45deg);
+  }
+}
+
+/* Žiedas – plūduriuoja kita kryptimi ir pulsuoja */
+.about-shapes .shape-ring {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 6px solid rgba(94, 234, 212, 0.35);
+  bottom: 60px;
+  right: 7%;
+  animation: ringDrift 8s ease-in-out infinite;
+}
+
+@keyframes ringDrift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-24px, 14px) scale(1.2);
+  }
+  66% {
+    transform: translate(10px, -20px) scale(0.85);
+  }
+}
+
+/*--------------------------------------------------------------
+# 13. Prieinamumas: mažiau judesio, jei vartotojas to prašo
+--------------------------------------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+  .hero .social-links a,
+  .hero .btn-cv-primary,
+  .about .about-photo img,
+  .cv-loader-ring,
+  .cv-loader-dots i,
+  .section-title h2::before,
+  .section-title h2::after,
+  .services.section,
+  .about-shapes .shape {
+    animation: none;
+  }
+}
